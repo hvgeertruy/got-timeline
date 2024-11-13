@@ -1,0 +1,25 @@
+/* Styling on basic elements. Nothing much to see here. */
+
+body {
+  font: 16px/1.8 verdana;
+  background-color: #ddd;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h1 {
+  margin-block: 16px;
+}
+
+h2 {
+  margin-block: 12px;
+}
+
+p {
+  margin-block: 12px;
+}

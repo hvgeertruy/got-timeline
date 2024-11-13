@@ -1,0 +1,52 @@
+:root {
+  --carousel-width: calc(80vw - (var(--container-padding) * 2));
+  --carousel-aspect-ratio: 9/6;
+}
+.carousel {
+  display: block;
+  overflow-x: scroll;
+  position: relative;
+  scroll-snap-type: x mandatory;
+}
+
+.handle {
+  --width-handle: 250px;
+  position: absolute;
+  bottom: 10%;
+  left: calc(50% - (var(--width-handle) / 2));
+  width: var(--width-handle);
+  display: flex;
+  flex-direction: column;
+  animation-timeline: scroll(x);
+  animation-name: moveHandle;
+}
+
+.items {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+  .item {
+    display: block;
+    flex-basis: 100px;
+    background-color: #444;
+    scroll-snap-align: center;
+  }
+
+  img {
+    width: var(--carousel-width);
+    max-width: none;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    max-height: 60vh;
+  }
+}
+
+@keyframes moveHandle {
+  0% {
+    opacity: 1;
+  }
+  3% {
+    opacity: 0;
+  }
+}

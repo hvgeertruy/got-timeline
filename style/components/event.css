@@ -1,0 +1,276 @@
+:root {
+  --event-type-count: 34;
+}
+.events {
+  display: grid;
+  grid-template-columns: repeat(var(--months), calc(var(--step) / 12));
+  align-self: start;
+
+  /* Make sure it overlays the employee timeline*/
+  position: absolute;
+  top: var(--tl-height);
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.event {
+  min-height: calc(100vh / (var(--event-type-count) + 1));
+  font-size: 16px;
+  color: #1f1f1f;
+  margin-block: 0;
+  padding: 0;
+  height: 0;
+  text-align: center;
+  pointer-events: all;
+
+  /* Tenure of employee relative to the grid column corresponding that year/month. */
+  grid-column: calc(
+      ((var(--event-year) - var(--timeline-start-year)) * 12) +
+        var(--event-month)
+    ) / span 1;
+
+  transition: all 300ms ease-out, color 200ms ease-out;
+  animation-name: showEventBar;
+  animation-timeline: scroll(x);
+  }
+  /* Make sure that we keep seeing the names even when the bars don't fit the screen */
+  &:after {
+    /* &:hover:after { */
+    content: attr(data-name);
+    font-size: 12px;
+    display: block;
+    text-align: center;
+  }
+}
+
+@keyframes showEventBar {
+  0% {
+    height: 20px;
+    padding: 4px;
+    margin-block: 4px;
+  }
+
+  99% {
+    height: 17px;
+    padding: 4px;
+    margin-block: 4px;
+  }
+
+  /* Subtle effect when removing employee bars that are not visible anymore*/
+  100% {
+    height: 0px;
+    padding: 0px;
+    margin-block: 0px;
+  }
+}
+
+/* Hide the content by default */
+.event-state {
+  opacity: 0;
+}
+.event-closer {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.event-close {
+  color: #666;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    color: #333;
+    &::after {
+      transform: scale(1.2);
+    }
+  }
+  &::after {
+    padding-inline: 6px;
+    font-weight: 700;
+    content: "\2715";
+    display: inline-block;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 300ms ease-out;
+  }
+}
+
+.event {
+  .event-toggle {
+    --event-size: 20px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      transition: transform 300ms 300ms ease-in-out, top 200ms ease-in;
+      transform: scale(1) rotate(0);
+      transform-origin: 50% 50%;
+      position: relative;
+      top: 0;
+      left: calc(50% - (var(--event-size) / 2));
+      z-index: 2;
+      width: var(--event-size);
+      height: var(--event-size);
+      display: block;
+      background: url(../../public/brand/sword.svg);
+      background-size: contain;
+      filter: drop-shadow(rgba(33, 33, 33, 0.4) 0px 1px 1px);
+    }
+
+  }
+
+  &:hover {
+    .event-toggle::before {
+      transition: transform 300ms ease-in-out, top 200ms 300ms ease-in;
+      transform: scale(2) rotate(90deg);
+      top: 10px;
+    }
+  }
+}
+
+
+.event {
+  &[type="Bran"] {
+    grid-row: 1;
+  }
+  &[type="Catelyn"] {
+    grid-row: 2;
+  }
+  &[type="Daenerys"] {
+    grid-row: 3;
+  }
+  &[type="Eddard"] {
+    grid-row: 4;
+  }
+  &[type="Jon"] {
+    grid-row: 5;
+  }
+  &[type="Arya"] {
+    grid-row: 6;
+  }
+  &[type="Tyrion"] {
+    grid-row: 7;
+  }
+  &[type="Sansa"] {
+    grid-row: 8;
+  }
+  &[type="Ned"] {
+    grid-row: 9;
+  }
+  &[type="Cressen"] {
+    grid-row: 10;
+  }
+  &[type="Davos"] {
+    grid-row: 11;
+  }
+  &[type="Theon"] {
+    grid-row: 12;
+  }
+  &[type="Jaime"] {
+    grid-row: 13;
+  }
+  &[type="Chett"] {
+    grid-row: 14;
+  }
+  &[type="Samwell"] {
+    grid-row: 15;
+  }
+  &[type="Aeron"] {
+    grid-row: 16;
+  }
+  &[type="Areo Hotah"] {
+    grid-row: 17;
+  }
+  &[type="Asha"] {
+    grid-row: 18;
+  }
+  &[type="Victarion"] {
+    grid-row: 19;
+  }
+  &[type="Pate"] {
+    grid-row: 20;
+  }
+  &[type="Brienne"] {
+    grid-row: 21;
+  }
+  &[type="Cersei"] {
+    grid-row: 22;
+  }
+  &[type="Quentyn"] {
+    grid-row: 23;
+  }
+  &[type="Arys"] {
+    grid-row: 24;
+  }
+  &[type="Varamyr"] {
+    grid-row: 25;
+  }
+  &[type="Arianne"] {
+    grid-row: 26;
+  }
+  &[type="Melisandre"] {
+    grid-row: 27;
+  }
+  &[type="Connington"] {
+    grid-row: 28;
+  }
+  &[type="Areo"] {
+    grid-row: 29;
+  }
+  &[type="Jon Snow"] {
+    grid-row: 30;
+  }
+  &[type="Jon Connington"] {
+    grid-row: 31;
+  }
+  &[type="Kevan"] {
+    grid-row: 32;
+  }
+  &[type="Barristan"] {
+    grid-row: 33;
+  }
+  &[type="World"] {
+    grid-row: 34;
+  }
+}
+
+.event-content {
+  z-index: 5;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 10px var(--container-padding);
+  position: fixed;
+  left: 10vw;
+  right: 10vw;
+  bottom: 0;
+  text-align: left;
+  transition:  transform 400ms ease-in-out;
+  transform: translateY(200vh); /* some extra slack to prevent overflow on flatter screens */
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  cursor: default;
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  p {
+    margin-bottom: 24px;
+  }
+}
+
+/* Show the content when the checkbox is checked */
+.event-state:checked ~ .event-content {
+  /* display: flex; */
+  transform: translateY(0);
+}

@@ -1,0 +1,149 @@
+:root {
+  --start-color: var(--main-color);
+  --end-color: rgba(0, 150, 0, 0.8);
+  --transparent-color: rgba(0, 0, 0, 0);
+}
+
+/* Neutral / None */
+.employee[data-house="Tarly"],
+.employee[data-house="Tully"],
+.employee[data-house="Mormont"],
+.employee[data-house="Children"],
+.employee[data-house="Second"],
+.employee[data-house="Free"],
+.employee[data-house="Clegane"],
+.employee[data-house="Tarth"],
+.employee[data-house="Faceless"],
+.employee[data-house="Dondarrion"],
+.employee[data-house="Payne"],
+.employee[data-house="Reed"],
+.employee[data-house="Frey"],
+.employee[data-house="Baelish"],
+.employee[data-house="Trant"],
+.employee[data-house="Selmy"],
+.employee[data-house="Brotherhood"],
+.employee[data-house="Faith"],
+.employee[data-house="Dothraki"],
+.employee[data-house="Unsullied"],
+.employee[data-house="Seaworth"],
+.employee[data-house="None"] {
+  --start-color: rgba(0, 0, 0, 0.8); /* Gray */
+  --end-color: rgba(106, 36, 155, 0.8); /* Purple */
+  --transparent-color: rgba(105, 105, 105, 0);
+}
+
+.employee[data-house="Nights"] {
+  --start-color: rgba(80, 80, 80, 0.8); /* Gray */
+  --end-color: rgba(22, 22, 22, 0.8); /* Purple */
+  --transparent-color: rgba(105, 105, 105, 0);
+}
+
+/* House Arryn */
+.employee[data-house="Arryn"] {
+  --start-color: rgba(173, 216, 230, 0.8); /* Light Blue */
+  --end-color: rgba(0, 51, 102, 0.8); /* Dark Blue */
+  --transparent-color: rgba(0, 51, 102, 0);
+}
+
+/* Free Folk / Wildlings */
+.employee[data-house="Free"] {
+  --start-color: rgba(54, 69, 79, 0.8); /* Dark Gray */
+  --end-color: rgba(173, 216, 230, 0.8); /* Light Blue */
+  --transparent-color: rgba(54, 69, 79, 0);
+}
+
+/* House Targaryen */
+.employee[data-house="Targaryen"] {
+  --start-color: rgba(255, 0, 0, 0.8); /* Red */
+  --end-color: rgba(0, 0, 0, 0.8); /* Black */
+  --transparent-color: rgba(0, 0, 0, 0);
+}
+
+/* House Stark */
+.employee[data-house="Karstark"],
+.employee[data-house="Bolton"],
+.employee[data-house="Stark"] {
+  --start-color: rgba(23, 24, 29, 0.8); /* Dark Gray */
+  --end-color: rgba(92, 92, 102, 0.8); /* Medium Gray */
+  --transparent-color: rgba(150, 150, 150, 0); /* Light Gray */
+}
+
+/* House Lannister */
+.employee[data-house="Lannister"] {
+  --end-color: rgba(92, 0, 0, 0.8); /* Deep Red */
+  --start-color: rgba(251, 126, 0, 0.8); /* Orange */
+  --transparent-color: rgba(255, 167, 0, 0); /* Golden Yellow */
+}
+
+/* House Martell */
+.employee[data-house="Martell"] {
+  --start-color: rgba(241, 176, 67, 0.8); /* Light Orange */
+  --end-color: rgba(178, 0, 0, 0.8); /* Deep Red */
+  --transparent-color: rgba(255, 149, 23, 0); /* Orange */
+}
+
+/* House Greyjoy */
+.employee[data-house="Greyjoy"] {
+  --start-color: rgba(0, 0, 0, 0.8); /* Black */
+  --end-color: rgba(70, 51, 117, 0.8); /* Dark Brown */
+  --transparent-color: rgba(224, 199, 94, 0); /* Gold */
+}
+
+/* House Baratheon */
+.employee[data-house="Baratheon"] {
+  --start-color: rgba(2, 6, 11, 0.8); /* Dark Blue-Black */
+  --end-color: rgba(248, 186, 0, 0.8); /* Bright Yellow */
+  --transparent-color: rgba(254, 254, 249, 0); /* Pale Cream */
+}
+
+/* House Tyrell */
+.employee[data-house="Tyrell"] {
+  --start-color: rgba(196, 185, 0, 0.8); /* Yellow-Gold */
+  --end-color: rgba(54, 161, 7, 0.8); /* Green */
+  --transparent-color: rgba(196, 182, 0, 0); /* Yellow */
+}
+
+/* White Walkers */
+.employee[data-house="White"] {
+  --start-color: rgba(38, 52, 100, 0.8); /* Deep Blue */
+  --end-color: rgba(81, 178, 255, 0.8); /* Icy Blue */
+  --transparent-color: rgba(101, 150, 200, 0); /* Lighter Blue */
+}
+
+.employee-backdrop {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    var(--start-color) 0%,
+    var(--end-color) 45%,
+    var(--start-color) 51%,
+    var(--transparent-color) 51%
+  );
+
+  border-radius: 3px;
+  background-size: 200% 100%;
+  background-position: top right;
+
+  animation-name: activeBackground;
+  animation-timeline: view(x);
+}
+
+@keyframes activeBackground {
+  0% {
+    background-position: top right;
+  }
+  5% {
+    background-position: top right;
+  }
+  90% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top left;
+  }
+}

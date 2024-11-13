@@ -1,0 +1,30 @@
+.background {
+  background: url("../../public/brand/background.jpg") repeat center center
+    fixed;
+  position: fixed;
+  z-index: -1;
+  top: 20px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  animation-name: backgroundFade;
+  animation-timeline: scroll(x);
+}
+
+/* Slowly fade out until it's gone. */
+@keyframes backgroundFade {
+  0% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 0.1;
+  }
+  95% {
+    opacity: 0.05;
+  }
+  100% {
+    opacity: 0.03;
+  }
+}

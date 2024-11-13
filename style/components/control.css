@@ -1,0 +1,6 @@
+.controls {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  background-color: #f00;
+}

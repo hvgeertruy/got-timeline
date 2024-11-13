@@ -1,0 +1,184 @@
+@import "employee-backdrop.css";
+@import "employee-tenure.css";
+
+:root {
+  --bar-height: 18px;
+  --bar-gap: 2px;
+  --bar-font-size: 12px;
+}
+
+.employees {
+  display: grid;
+  grid-template-columns: repeat(var(--months), calc(var(--step) / 12));
+  align-self: start;
+  margin-top: 16px;
+  margin-bottom: 20vh;
+}
+
+.employee {
+  position: relative;
+  color: #1f1f1f;
+  margin-block: 0;
+  padding: 0;
+  height: 0;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+
+  /* Tenure of employee relative to the grid column corresponding that year/month. */
+  /* grid-column: calc(
+      ((var(--start-year) - var(--timeline-start-year)) * 12) +
+        var(--start-month)
+    ) / span var(--duration); */
+
+  grid-column: 25 / span
+    calc(
+      ((var(--year-of-death) - (var(--timeline-start-year))) * 12) - 25 +
+        var(--month-of-death)
+    );
+
+  grid-row: var(--row);
+
+  transition: all 300ms ease-out, color 200ms ease-out;
+  animation-name: showEmployeeBar;
+  animation-timeline: view(x);
+
+  /* Make sure that we keep seeing the names even when the bars don't fit the screen */
+  &:before {
+    color: #eeefff;
+    font-size: var(--bar-font-size);
+    padding-inline: 2px;
+    vertical-align: text-top;
+    content: attr(data-name);
+    position: sticky;
+    letter-spacing: 1;
+    left: 0;
+
+    animation-name: activeEmployee;
+    animation-timeline: view(x);
+  }
+
+  /* A survivor is an employee that made it to the end of CODEZILLA. Kevin, Roque and Ralph technically made it to the end, but already quit the job. Sorry guys.. */
+  &.survivor,
+  &.last-one-standing {
+    animation-timeline: scroll(x);
+    animation-name: showSurvivorBar;
+
+    &:after {
+      --survivor-offset: 74vw;
+      content: attr(data-name);
+      padding: 2px;
+      text-align: right;
+      position: absolute;
+      width: calc(44vw + var(--survivor-offset));
+      top: 0;
+      z-index: -2;
+      white-space: nowrap;
+      right: calc(44vw - var(--survivor-offset));
+      background: linear-gradient(
+        90deg,
+        rgba(207, 207, 207, 0.8) 0%,
+        rgba(207, 207, 207, 0.8) 90%,
+        rgba(207, 207, 207, 0) 100%
+      );
+    }
+  }
+
+  &:hover .employee-details {
+    display: flex;
+  }
+
+  .employee-details {
+    display: none;
+    position: sticky;
+    left: 50%;
+    width: 30vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 24px;
+    color: #efefef;
+    flex-direction: row;
+    gap: 16px;
+    z-index: 10;
+
+    .house {
+      flex: 0 0 20px;
+      background-image: var(--house);
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+    }
+
+    .text {
+      flex: 1 1 auto;
+      line-height: 1.2;
+    }
+
+    .quote {
+      margin-block: 8px;
+    }
+
+    .died {
+      font-style: italic;
+      color: #aaa;
+    }
+  }
+
+  /* The last one standing is the person that tried to keep this thing afloat. TLDR; He failed. It was worth a shot though. */
+  &.last-one-standing {
+    &:after {
+      --survivor-offset: 56vw;
+    }
+  }
+}
+
+@keyframes showEmployeeBar {
+  0% {
+    height: var(--bar-height);
+    padding: var(--bar-gap);
+    margin-block: var(--bar-gap);
+  }
+
+  98% {
+    height: var(--bar-height);
+    padding: var(--bar-gap);
+    margin-block: var(--bar-gap);
+  }
+
+  /* Subtle effect when removing employee bars that are not visible anymore*/
+  100% {
+    height: 0px;
+    padding: 0px;
+    margin-block: 0px;
+  }
+}
+
+@keyframes showSurvivorBar {
+  0% {
+    height: var(--bar-height);
+    padding: var(--bar-gap);
+    margin-block: var(--bar-gap);
+  }
+
+  100% {
+    height: var(--bar-height);
+    padding: var(--bar-gap);
+    margin-block: var(--bar-gap);
+  }
+}
+
+@keyframes activeEmployee {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

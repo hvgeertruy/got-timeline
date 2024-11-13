@@ -1,0 +1,69 @@
+@import "reset.css";
+@import "elements.css";
+@import "components/intro.css";
+@import "components/background.css";
+@import "components/timeline.css";
+@import "components/employee.css";
+@import "components/event.css";
+@import "components/event-date.css";
+@import "components/control.css";
+@import "components/tooltip.css";
+@import "components/carousel.css";
+@import "utilities.css";
+
+/* Main variables */
+:root {
+  --main-color: rgb(82, 215, 13);
+  --timeline-start-year: 295;
+  --months: 142;
+  --tl-height: 30px;
+  --container-padding: 40px;
+}
+
+@property --step {
+  syntax: "<length>";
+  initial-value: 48vw;
+  inherits: true;
+}
+
+.list li {
+  list-style-type: disc;
+  list-style-position: outside;
+
+  &::marker {
+    color: var(--main-color);
+  }
+}
+
+.unsupported-browser {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #fff;
+  padding: 20vh 20vw;
+
+  strong {
+    display: block;
+  }
+
+  p {
+    max-width: 60vw;
+    text-align: center;
+  }
+
+  p,
+  img {
+    margin: 0 auto;
+    max-height: 30vh;
+  }
+}
+
+/* Make sure the browser supports animation-timeline */
+@supports (animation-timeline: scroll()) and (animation-timeline: view()) {
+  .unsupported-browser {
+    display: none;
+  }
+}

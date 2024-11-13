@@ -1,0 +1,53 @@
+.outro,
+.intro {
+  position: absolute;
+  padding: 40px 80px;
+  left: 15vw;
+  right: 15vw;
+  top: 20vh;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+  p {
+    margin-block: 24px;
+  }
+
+  .logo {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+
+    .ribbon-period {
+      position: absolute;
+      left: 50%;
+      transform: rotate(-15deg) translate(153px, 21px);
+    }
+
+    img {
+      position: relative;
+      margin: 0 auto;
+    }
+  }
+
+  .key {
+    width: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    &.right {
+      transform: scaleX(-1);
+    }
+  }
+
+  .event-logo {
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .explanation {
+    margin-top: 24px;
+    text-align: center;
+  }
+}

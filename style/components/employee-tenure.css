@@ -1,0 +1,56 @@
+/* Container-query: determine bar opacity depending on how long employee was working for CODEZILLA*/
+.employee {
+  container-type: inline-size;
+  container-name: bar;
+}
+
+@container bar (min-width: 10vw) {
+  .backdrop {
+    opacity: 0.1;
+  }
+}
+@container bar (min-width: 20vw) {
+  .backdrop {
+    opacity: 0.2;
+  }
+}
+@container bar (min-width: 30vw) {
+  .backdrop {
+    opacity: 0.3;
+  }
+}
+@container bar (min-width: 40vw) {
+  .backdrop {
+    opacity: 0.4;
+  }
+}
+@container bar (min-width: 50vw) {
+  .backdrop {
+    opacity: 0.5;
+  }
+}
+@container bar (min-width: 60vw) {
+  .backdrop {
+    opacity: 0.6;
+  }
+}
+@container bar (min-width: 70vw) {
+  .backdrop {
+    opacity: 0.7;
+  }
+}
+@container bar (min-width: 80vw) {
+  .backdrop {
+    opacity: 0.8;
+  }
+}
+@container bar (min-width: 90vw) {
+  .backdrop {
+    opacity: 0.9;
+  }
+}
+@container bar (min-width: 100vw) {
+  .backdrop {
+    opacity: 1;
+  }
+}
