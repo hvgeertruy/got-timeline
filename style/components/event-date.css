@@ -16,13 +16,13 @@
   &::before {
     counter-reset: year var(--event-year);
     font-weight: bold;
-    color: #666;
+    color: #aaa;
     content: counter(year) ",";
     transform: translateY(-2px); /*align with month text */
   }
 
   .months {
-    fill: #000;
+    fill: #efefef;
     white-space: pre;
     width: 100px;
     transform: translateY(calc(var(--offset) * (var(--event-month) - 1) * -1));

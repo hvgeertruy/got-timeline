@@ -33,7 +33,7 @@
 
   grid-column: 25 / span
     calc(
-      ((var(--year-of-death) - (var(--timeline-start-year))) * 12) - 25 +
+      ((var(--year-of-death) - (var(--timeline-start-year))) * 12) - 24 +
         var(--month-of-death)
     );
 

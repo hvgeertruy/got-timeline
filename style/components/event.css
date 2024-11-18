@@ -1,5 +1,5 @@
 :root {
-  --event-type-count: 34;
+  --event-type-count: 8;
 }
 .events {
   display: grid;
@@ -76,7 +76,7 @@
 }
 
 .event-close {
-  color: #666;
+  color: #aaa;
   position: absolute;
   top: 0;
   right: 0;
@@ -136,107 +136,29 @@
 
 
 .event {
-  &[type="Bran"] {
+  &[type="Stark"] {
     grid-row: 1;
   }
-  &[type="Catelyn"] {
+  &[type="Baratheon"] {
     grid-row: 2;
   }
   &[type="Daenerys"] {
     grid-row: 3;
   }
-  &[type="Eddard"] {
+  &[type="Lannisters"] {
     grid-row: 4;
   }
-  &[type="Jon"] {
+  &[type="Eyrie"] {
     grid-row: 5;
   }
-  &[type="Arya"] {
+  &[type="Greyjoy"] {
     grid-row: 6;
   }
-  &[type="Tyrion"] {
+  &[type="Black"] {
     grid-row: 7;
   }
-  &[type="Sansa"] {
+  &[type="Tyrell"] {
     grid-row: 8;
-  }
-  &[type="Ned"] {
-    grid-row: 9;
-  }
-  &[type="Cressen"] {
-    grid-row: 10;
-  }
-  &[type="Davos"] {
-    grid-row: 11;
-  }
-  &[type="Theon"] {
-    grid-row: 12;
-  }
-  &[type="Jaime"] {
-    grid-row: 13;
-  }
-  &[type="Chett"] {
-    grid-row: 14;
-  }
-  &[type="Samwell"] {
-    grid-row: 15;
-  }
-  &[type="Aeron"] {
-    grid-row: 16;
-  }
-  &[type="Areo Hotah"] {
-    grid-row: 17;
-  }
-  &[type="Asha"] {
-    grid-row: 18;
-  }
-  &[type="Victarion"] {
-    grid-row: 19;
-  }
-  &[type="Pate"] {
-    grid-row: 20;
-  }
-  &[type="Brienne"] {
-    grid-row: 21;
-  }
-  &[type="Cersei"] {
-    grid-row: 22;
-  }
-  &[type="Quentyn"] {
-    grid-row: 23;
-  }
-  &[type="Arys"] {
-    grid-row: 24;
-  }
-  &[type="Varamyr"] {
-    grid-row: 25;
-  }
-  &[type="Arianne"] {
-    grid-row: 26;
-  }
-  &[type="Melisandre"] {
-    grid-row: 27;
-  }
-  &[type="Connington"] {
-    grid-row: 28;
-  }
-  &[type="Areo"] {
-    grid-row: 29;
-  }
-  &[type="Jon Snow"] {
-    grid-row: 30;
-  }
-  &[type="Jon Connington"] {
-    grid-row: 31;
-  }
-  &[type="Kevan"] {
-    grid-row: 32;
-  }
-  &[type="Barristan"] {
-    grid-row: 33;
-  }
-  &[type="World"] {
-    grid-row: 34;
   }
 }
 
@@ -245,7 +167,8 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: #333;
+  color: #efefef;
   border-radius: 4px;
   overflow: hidden;
   padding: 10px var(--container-padding);
