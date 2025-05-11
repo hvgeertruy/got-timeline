@@ -68,6 +68,7 @@
       --survivor-offset: 74vw;
       content: attr(data-name);
       padding: 2px;
+      padding-right: 12px;
       text-align: right;
       position: absolute;
       width: calc(44vw + var(--survivor-offset));
